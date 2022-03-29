@@ -8,7 +8,7 @@ import * as $2 from "./routes/index.tsx";
 
 const manifest = {
   routes: {
-    "./routes/[name].tsx": $0,
+    "./routes/pkg/[name].tsx": $0,
     "./routes/_render.ts": $1,
     "./routes/index.tsx": $2,
   },

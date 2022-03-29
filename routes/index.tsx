@@ -2,6 +2,7 @@
 /** @jsxFrag Fragment */
 
 import { Fragment, h, Head, hljs, tw } from "../client_deps.ts";
+import { List } from "../components/List.tsx";
 
 export default function Index() {
   const main = tw`max-w-screen-sm mx-auto px(4 sm:4 md:4) space-y-3`;
@@ -10,7 +11,7 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>PythonLand</title>
+        <title>Python Land</title>
         <meta
           name="description"
           content="A fast CDN to use statically typed Python modules in Deno."
@@ -20,7 +21,8 @@ export default function Index() {
       <Hero />
       <section class={main}>
         <p class={text}>Import from a URL</p>
-        <Block code={'import np from "https://python.mod.land/numpy"'}></Block>
+        <Block code={'import np from "https://python.mod.land/pkg/numpy"'}></Block>
+        <List/>
       </section>
     </>
   );
@@ -40,9 +42,11 @@ function Hero() {
   );
 }
 
+// deno-lint-ignore no-explicit-any
 function Block(props: any) {
   const block = tw`bg-gray-100 p-3`;
-  const code = hljs.highlight(props.code, {language: 'javascript'}).value
+  // deno-lint-ignore no-explicit-any
+  const code = (hljs as any).highlight(props.code, {language: 'javascript'}).value
   return (
     <div class={block}>
       <pre><code dangerouslySetInnerHTML={{__html: code}}></code></pre>
