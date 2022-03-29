@@ -1,16 +1,21 @@
-# fresh project
+# Pip Deno
+
+Import any python module into deno as long as you have it installed locally
 
 ### Usage
 
-Start the project:
+```ts
+import np from "https://pip.deno.dev/pkg/numpy";
+import plt from "https://pip.deno.dev/pkg/matplotlib.pyplot";
 
-```
-deno run -A --watch main.ts
+const xpoints = np.array([1, 8]);
+const ypoints = np.array([3, 10]);
+
+plt.plot(xpoints, ypoints);
+plt.show();
 ```
 
-After adding, removing, or moving a page in the `routes` or directory, or adding,
-removing, or moving an island in the `islands` directory, run:
 
-```
-fresh manifest
-```
+
+
+
