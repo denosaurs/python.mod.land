@@ -35,6 +35,7 @@ export default function ModulePage(ctx: any) {
   return <html>
     <head>
       <title>{ctx.params.name} - Python Land</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"/>
     </head>
     <body>
       <style>{css}</style>
