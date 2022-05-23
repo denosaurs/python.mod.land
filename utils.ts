@@ -6,6 +6,4 @@ export function checkExist(name: string, callback: (exists: any) => void) {
   });
 }
 
-export function isHtmlRequest(req: Request) {
-  return accepts(req, "application/*", "text/html") === "text/html";
-}
+export const isHtmlRequest = (req: Request) =>  accepts(req, "application/*", "text/html") === "text/html";
