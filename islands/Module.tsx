@@ -12,14 +12,14 @@ function Card({name, summary, description, version, source_code}: any) {
     <div>
       <div class={title}>{name} <a class={`bi bi-github`} href={source_code} style="font-size: 1rem;" ></a> <a class={num}>v.{version}</a></div>
       <div class={subtitle}>{summary}</div>
-      
       <div class={descript} dangerouslySetInnerHTML={{ __html: marked.parse(description) }}></div>
     </div>
   );
 }
 
+// deno-lint-ignore no-explicit-any
 export default function Module({name}:any) {
-  const [data, setData] = useState(<Placeholder /> as h.JSX.Element);
+  const [data, setData] = useState(<Placeholder />);
   const container = `max-w-screen-sm mx-auto px(4 sm:4 md:4) space-y-3`;
   useEffect(() => {
     fetch(
@@ -31,7 +31,7 @@ export default function Module({name}:any) {
       });
   }, []);
   return (
-    <div class={container} onLoad={() => setData(<Placeholder /> as h.JSX.Element)}>
+    <div class={container} onLoad={() => setData(<Placeholder />)}>
       {data}
     </div>
   );

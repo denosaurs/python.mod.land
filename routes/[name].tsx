@@ -2,7 +2,7 @@ import { hljs } from "../client_deps.ts";
 import Header from "../components/Header.tsx";
 import Footer from "../components/Footer.tsx";
 import Module from "../islands/Module.tsx";
-import { Handlers, css } from "../server_deps.ts";
+import { css } from "../server_deps.ts";
 import { checkExist, isHtmlRequest } from "../utils.ts";
 // deno-lint-ignore no-explicit-any
 function Block(props: any) {
@@ -15,19 +15,21 @@ function Block(props: any) {
     </div>
   );
 }
-export const handler: Handlers = {
-  GET(_, ctx) {
+export const handler = {
+  // deno-lint-ignore no-explicit-any
+  GET(_: any, ctx: any) {
     if (isHtmlRequest(_)) {
       return ctx.render()
     }
     const mod =
-      `import { python } from "https://deno.land/x/python@0.1.4/mod.ts";\nexport const python_mod = python.import("${ctx.params.name}");\nexport default python_mod;`;
+      `import { python } from "https://deno.land/x/python@0.2.2/mod.ts";\nexport const python_mod = python.import("${ctx.params.name}");\nexport default python_mod;`;
     return new Response(mod, {
       headers: { "Content-Type": "application/javascript" },
     });
   },
 };
 
+// deno-lint-ignore no-explicit-any
 export default function ModulePage(ctx: any) {
   const main = `max-w-screen-sm mx-auto px(4 sm:4 md:4) space-y-3 mb-8 pt-10`;
   const text = `text-gray-600 text-lg`;

@@ -20,7 +20,8 @@ function Card({index, name, count}: any) {
 }
 
 export default function List() {
-  const [data, setData] = useState([] as h.JSX.Element[]);
+  // deno-lint-ignore no-explicit-any
+  const [data, setData] = useState([] as any[]);
   const container = `max-w-screen-sm mx-auto px(4 sm:4 md:4) space-y-3`;
   const list = `max-w-screen-sm mt-4 text(lg gray-600 center)`;
   const table = `w-full table-auto mt-2`

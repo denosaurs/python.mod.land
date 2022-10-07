@@ -10,7 +10,8 @@ export default function Index() {
   const main = `max-w-screen-sm mx-auto px(4 sm:4 md:4) space-y-3 mb-8 pt-8`;
   const projects = `max-w-screen-sm mx-auto px(4 sm:4 md:4) space-y-3 mb-8 `;
   const text = `text-gray-600 text-lg`;
-  function handleSearch(e) {
+  // deno-lint-ignore no-explicit-any
+  function handleSearch(e: any) {
     e.preventDefault()
     console.log(e)
   }
